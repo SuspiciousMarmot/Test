@@ -45,7 +45,8 @@ public final class PluginTemplate extends SimplePlugin {
 		if (event.getRightClicked().getType() == EntityType.COW)
 			event.getRightClicked().getWorld().createExplosion(event.getRightClicked().getLocation(), 5);
 		else if (event.getPlayer().hasPermission(frost)) {
-			event.getRightClicked().setFreezeTicks(sec((int) event.getPlayer().getLevel()));
+			int playerlv = event.getPlayer().getLevel();
+			event.getRightClicked().setFreezeTicks(sec(Math.min(playerlv, 15));
 		}
 	}
 }
